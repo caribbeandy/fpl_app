@@ -11,7 +11,7 @@ public class FplOptimizer {
 
     private static class Player {
         public String name;
-        
+
         // Constraints
         public int team_code;
         public double now_cost;
@@ -36,7 +36,7 @@ public class FplOptimizer {
         return 0;
     }
 
-	private static List<Player> parseFile(File file) {
+    private static List<Player> parseFile(File file) {
 
         List<Player> res = new ArrayList<>();
 
@@ -61,7 +61,7 @@ public class FplOptimizer {
             if (teamCodeIndex==-1 || nowCostIndex==-1 || totalPointsIndex==-1 || positionIndex==-1){
                 return res;
             }
-            
+
             while(fileReader.hasNext()) {
                 line = fileReader.next();
                 split = line.split("\\s*,\\s*");
@@ -71,11 +71,11 @@ public class FplOptimizer {
                 System.out.println();
                 System.out.println();
                 res.add(new Player(
-                    Integer.valueOf(split[teamCodeIndex]),
-                    Integer.valueOf(split[nowCostIndex]),
-                    Integer.valueOf(split[totalPointsIndex]),
-                    Integer.valueOf(split[positionIndex])
-                ));
+                            Integer.valueOf(split[teamCodeIndex]),
+                            Integer.valueOf(split[nowCostIndex]),
+                            Integer.valueOf(split[totalPointsIndex]),
+                            Integer.valueOf(split[positionIndex])
+                            ));
             }
 
             fileReader.close();
@@ -84,7 +84,7 @@ public class FplOptimizer {
         }
 
         return res;
-	}
+    }
 
     public static void main(String [] args) {
         List<Player> players = parseFile(new File("fpl_2017_2018_data_raw.csv"));
